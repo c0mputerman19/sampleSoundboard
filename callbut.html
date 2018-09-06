@@ -1,0 +1,195 @@
+<html>
+	<head>
+		<style>
+			#pauseBut{
+				float: center;
+				width: 130px;
+				padding: 0px;
+				border: 1px solid red;
+			}
+			input[type=text]{
+				background-color: white;
+				color: grey;
+				font: normal normal bold 11px georgia;
+			}
+			table{
+				border: 1px;
+				border-spacing: 0px;
+			}
+			label,.button {
+				border: 1.99px solid skyblue;
+				text-align: center;
+			}
+			label{
+				display: block;
+				text-align: center;
+				vertical-align: middle;
+				width: 100%;
+				padding: 0px;
+				border: 0px solid #6b9697;
+				font: normal normal normal 20px trebuchet ms;
+			}
+			td{
+				text-align: center;
+				width: 130px;
+			}
+			.button {
+				display: inline-block;
+				text-align: center;
+				vertical-align: middle;
+				padding: 0px 0px;
+				width: 98%;
+				border: 1px solid #5c8684;
+				border-radius: 0px;
+				background: #98dcd8;
+				background: -webkit-gradient(linear, left top, left bottom, from(#98dcd8), to(#5c8684));
+				background: -moz-linear-gradient(top, #98dcd8, #5c8684);
+				background: linear-gradient(to bottom, #98dcd8, #5c8684);
+				text-shadow: #42605e 0px 0px 0px;
+				font: normal normal normal 12px trebuchet ms;
+				color: #4d484d;
+				text-decoration: none;
+			}
+			.button:hover,
+			.button:focus {
+				border: 1px solid ##84bfbc;
+				background: #b6ffff;
+				background: -webkit-gradient(linear, left top, left bottom, from(#b6ffff), to(#6ea19e));
+				background: -moz-linear-gradient(top, #b6ffff, #6ea19e);
+				background: linear-gradient(to bottom, #b6ffff, #6ea19e);
+				color: #4d484d;
+				text-decoration: none;
+			}
+			.button:active {
+				background: #5c8684;
+				background: -webkit-gradient(linear, left top, left bottom, from(#5c8684), to(#5c8684));
+				background: -moz-linear-gradient(top, #5c8684, #5c8684);
+				background: linear-gradient(to bottom, #5c8684, #5c8684);
+			}
+			#calbut{
+				border-radius: 10px;
+				border: 6px solid black;
+				padding: 5px;
+				background-color: lightgray;
+			}
+			#icaller {
+				float: center;
+				width: 100%;
+				border: 5px;
+				padding-bottom: 5px;
+			}
+			#cbut{
+				background-color: lightyellow;
+				padding: 3px;
+				border: 5px solid white;
+			}
+		</style>
+		<script>
+			var loc = window.location;
+			var loc = encodeURI(loc);
+			var endIn = loc.indexOf("callbut.html");
+			var vUrl = decodeURI(loc.slice(0,endIn));
+			var c1;
+	
+			function cPause(event){
+				var key32 =	"32";
+				var pkey = event.which || event.keyCode;
+				if (pkey == key32){
+					if(cButt.paused){
+						cButt.play();
+					}else if(cButt.ended){
+ 						cButt.defaultMuted = true;
+					}else{
+						cButt.pause();
+					}
+				}
+			}
+			
+			function myButt(c){
+				c2 = c;
+				if(c==c1){
+					cButt.play();
+				}else{
+					switch(c){
+						case "hello":
+						document.getElementById("cButt").src = vUrl +"samplerec/Hello.mp3";
+						cButt.play();
+						c1 = c;
+						break;
+						
+
+						case "morning":
+						document.getElementById("cButt").src = vUrl +"samplerec/Good Morning.mp3";
+						cButt.play();
+						c1 = c;
+						break;
+					
+						case "eve":
+						document.getElementById("cButt").src = vUrl +"samplerec/Good evening.mp3";
+						cButt.play();
+						c1 = c;
+						break;
+
+						case "Opening spill":
+						document.getElementById("cButt").src = vUrl +"samplerec/Opening spill.mp3";
+						cButt.play();
+						c1 = c;
+						break;
+
+						case "Main pitch":
+						document.getElementById("cButt").src = vUrl +"samplerec/Main pitch.mp3";
+						cButt.play();
+						c1 = c;
+						break;
+
+						case "2nd level":
+						document.getElementById("cButt").src = vUrl +"samplerec/2nd level.mp3";
+						cButt.play();
+						c1 = c;
+						break;
+
+						case "15 spill":
+						document.getElementById("cButt").src = vUrl +"samplerec/15 spill.mp3";
+						cButt.play();
+						c1 = c;
+						break;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body onkeypress="cPause(event)">
+		<div id="calbut">
+			<div id="icaller">
+				<audio id="cButt"> Your browser does not support HTML5 video.</audio>
+				<div id="cbut">
+					<table align="center">
+						<tr>
+							<td colspan="2"><label>OPENING</label></td>
+							<td><label>MONEY ASKS</label></td>
+							<td colspan="2"><label>REBUTTALS</label></td>
+						</tr>
+						<tr>
+							<td><a class="button" href="#" onclick="myButt('hello')">Hello</a></td>
+							<td><a class="button" href="#" onclick="myButt('Opening spill')">Opening Spill</a></td>
+							<td><a class="button" href="#" onclick="myButt('2nd level')">2nd level</a></td>
+							<td><a class="button" href="#" onclick="myButt('15 spill')">15 spill</a></td>
+						</tr>
+						<tr>
+							<td><a class="button" href="#" onclick="myButt('morning')">Good Morning</a></td>
+							<td><a class="button" href="#" onclick="myButt('Main pitch')">Main pitch</a></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><a class="button" href="#" onclick="myButt('eve')">Good Evening</a></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
